@@ -28,6 +28,13 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- ASM Opteration -->
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>9.3</version>
+        </dependency>
     </dependencies>
 
     <build>
