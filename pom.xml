@@ -12,6 +12,7 @@
         <module>JavaAgent</module>
         <module>JavaBase</module>
         <module>JavaSec</module>
+        <module>JavaWeb/SpringLearn</module>
     </modules>
 
     <properties>

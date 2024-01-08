@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 构造注入 -->
+    <!-- <bean id="user" class="org.dili.springlearn.object.User"> -->
+    <!--     <constructor-arg name="username" value="zhangshan" /> -->
+    <!--     <constructor-arg name="age" value="18" /> -->
+    <!--     <constructor-arg name="address" value="Beijing" /> -->
+    <!--     <constructor-arg name="date" ref="now" /> -->
+    <!-- </bean> -->
+
+    <!-- Set注入 -->
+    <bean id="user" class="org.dili.springlearn.object.User">
+        <property name="username" value="lisi" />
+        <property name="age" value="18" />
+        <property name="address" value="Beijing" />
+        <property name="date" ref="now" />
+    </bean>
+
+    <bean id="now" class="java.util.Date"></bean>
+
+    <bean class="org.dili.springlearn.object.Cat" />
+    <bean class="org.dili.springlearn.object.Dog" />
+
+    <bean id="person" class="org.dili.springlearn.object.Person" autowire="byType">
+        <property name="username" value="mike" />
+        <!-- <property name="cat" ref="cat" /> -->
+        <!-- <property name="dog" ref="dog" /> -->
+    </bean>
+
+</beans>

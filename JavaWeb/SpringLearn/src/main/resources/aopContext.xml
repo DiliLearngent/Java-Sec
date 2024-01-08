@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--    注册bean-->
+    <bean id="userservice" class="org.dili.springlearn.object.UserService"/>
+    <bean id="beforelog" class="org.dili.springlearn.log.BeforeLog"/>
+    <bean id="afterlog" class="org.dili.springlearn.log.AfterLog"/>
+
+    <!--  AOP配置-->
+    <aop:config>
+        <!--        切入点expression：表达式匹配要执行的方法-->
+        <aop:pointcut id="pointcut" expression="execution(* org.dili.springlearn.object.UserService.*(..))"/>
+        <!--        环绕执行；advice-ref执行方法，pointcut-ref切入点-->
+        <aop:advisor advice-ref="beforelog" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterlog" pointcut-ref="pointcut"/>
+    </aop:config>
+
+</beans>
