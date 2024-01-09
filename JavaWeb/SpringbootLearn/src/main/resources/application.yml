@@ -1,0 +1,28 @@
+name: zhangshan
+
+Person:
+  username: lisi
+  age: 18
+
+---
+server:
+  port: 8081
+spring:
+  profiles: dev
+
+---
+server:
+  port: 8082
+spring:
+  profiles: pro
+
+---
+server:
+  port: 8082
+spring:
+  profiles: test
+
+---
+spring:
+  profiles:
+    active: pro

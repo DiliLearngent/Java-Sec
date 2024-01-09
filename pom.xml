@@ -15,6 +15,7 @@
         <module>JavaWeb/SpringLearn</module>
         <module>JavaWeb/MybatisLearn</module>
         <module>JavaWeb/SpringmvcLearn</module>
+        <module>JavaWeb/SpringbootLearn</module>
     </modules>
 
     <properties>
