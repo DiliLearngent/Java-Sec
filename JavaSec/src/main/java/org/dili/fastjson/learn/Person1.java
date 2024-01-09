@@ -1,4 +1,4 @@
-package org.dili.fastjson;
+package org.dili.fastjson.learn;
 
 import com.alibaba.fastjson.annotation.JSONField;
 

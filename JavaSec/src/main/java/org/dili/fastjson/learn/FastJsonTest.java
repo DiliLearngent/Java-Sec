@@ -1,6 +1,9 @@
-package org.dili.fastjson;
+package org.dili.fastjson.learn;
 
 import com.alibaba.fastjson.JSON;
+import org.dili.fastjson.learn.Person;
+import org.dili.fastjson.learn.Person1;
+
 import java.io.IOException;
 
 public class FastJsonTest {

@@ -13,6 +13,8 @@
         <module>JavaBase</module>
         <module>JavaSec</module>
         <module>JavaWeb/SpringLearn</module>
+        <module>JavaWeb/MybatisLearn</module>
+        <module>JavaWeb/SpringmvcLearn</module>
     </modules>
 
     <properties>

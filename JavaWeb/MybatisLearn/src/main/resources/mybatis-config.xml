@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis的主配置文件 -->
+<configuration>
+    <!-- 配置环境 -->
+    <environments default="development">
+        <!-- 配置mysql的环境 -->
+        <environment id="development">
+            <!-- 配置事务的类型 -->
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据源（连接池） -->
+            <dataSource type="POOLED">
+                <!-- 配置连接数据库的四个基本信息 -->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/test?useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!-- 指定映射配置文件的位置 -->
+        <!-- <mapper resource="org/dili/mybatislearn/mapper/UserMapper.xml"/> -->
+
+        <!-- Mapper代理方式 -->
+        <package name="org.dili.mybatislearn.mapper"/>
+    </mappers>
+</configuration>

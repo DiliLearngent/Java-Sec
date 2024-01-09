@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 名称空间，可区分不同mapping文件中的id标识 -->
+<mapper namespace="org.dili.mybatislearn.mapper.UserMapper">
+    <select id="selectAll" resultType="org.dili.mybatislearn.object.User">
+        select * from tb_user;
+    </select>
+
+    <select id="selectById" resultType="org.dili.mybatislearn.object.User">
+        select * from tb_user where id=#{id};
+    </select>
+
+    <!-- <select id="selectByCondition" resultType="org.example.User"> -->
+    <!--     select * from tb_user where age=#{age} and address like #{address}; -->
+    <!-- </select> -->
+
+    <!-- 动态查询 -->
+    <select id="selectByCondition" resultType="org.dili.mybatislearn.object.User">
+        select *
+        from tb_user
+        <where>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="address != null and address != ''">
+                and address like #{address}
+            </if>
+        </where>
+    </select>
+    <select id="selectByConditionSingle" resultType="org.dili.mybatislearn.object.User">
+        select *
+        from tb_user
+        <where>
+            <choose>
+                <when test="age != null">
+                    age = #{age}
+                </when>
+                <when test="address != null and address != ''">
+                    address like #{address}
+                </when>
+            </choose>
+        </where>
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_user (username, password, age, address)
+        values (#{username},#{password},#{age},#{address});
+    </insert>
+
+    <!-- <update id="update"> -->
+    <!--     update tb_user -->
+    <!--     set -->
+    <!--         username = #{username}, -->
+    <!--         password = #{password}, -->
+    <!--         age = #{age}, -->
+    <!--         address = #{address} -->
+    <!--     where id = #{id}; -->
+    <!-- </update> -->
+
+    <update id="update">
+        update tb_user
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <delete id="deleteById">
+        delete from tb_user where id = #{id};
+    </delete>
+
+    <delete id="deleteByIds">
+        delete from tb_user where id
+        in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+        ;
+    </delete>
+</mapper>
