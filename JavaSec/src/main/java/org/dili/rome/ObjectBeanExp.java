@@ -41,12 +41,12 @@ public class ObjectBeanExp {
         hashMap.put(objectBean, "aaaa");
 
         // 序列化
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("ObjectBean.bin"));
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("JavaSec/out/ObjectBean.bin"));
         objectOutputStream.writeObject(hashMap);
         objectOutputStream.close();
 
         // 反序列化
-        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("ObjectBean.bin"));
+        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("JavaSec/out/ObjectBean.bin"));
         objectInputStream.readObject();
         objectInputStream.close();
     }

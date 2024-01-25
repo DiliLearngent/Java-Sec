@@ -33,12 +33,12 @@ public class JdbcRowExp {
         hashMap.put(objectBean, "bbbb");
 
         // 序列化
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("JdbcRowExp.bin"));
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("JavaSec/out/JdbcRowExp.bin"));
         objectOutputStream.writeObject(hashMap);
         objectOutputStream.close();
 
         // 反序列化
-        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("JdbcRowExp.bin"));
+        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("JavaSec/out/JdbcRowExp.bin"));
         objectInputStream.readObject();
         objectInputStream.close();
     }
